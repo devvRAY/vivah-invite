@@ -1,0 +1,97 @@
+{
+  "theme": "c",
+
+  "names": { "bride": "Mrudula", "groom": "Mihir" },
+
+  "photos": {
+    "couple": { "file": "couple.jpg", "focus": "50% 30%" },
+    "bride":  { "file": "bride.jpg",  "focus": "50% 25%" },
+    "groom":  { "file": "groom.jpg",  "focus": "50% 25%" }
+  },
+
+  "stage": {
+    "ganesh": "॥ श्री गणेशाय नमः ॥",
+    "sealText": "श्री",
+    "kicker": "Reception Invitation",
+    "hint": ""
+  },
+
+  "pageTitle": "Mrudula & Mihir · Reception Invitation",
+
+  "wedding": {
+    "eventTitle": "Wedding Reception · स्वागत समारंभ",
+    "dateTime": "2026-12-25T18:00:00+05:30",
+    "dateLabel": "Friday, 25 December 2026",
+    "timeLabel": "6:00 pm",
+    "city": "Kolhapur",
+    "heroMarathi": "चि.सौ.कां. मृदुला  ·  चि. मिहिर",
+    "countdownNote": "until the reception",
+    "countdownDoneNote": "The celebrations have begun",
+    "venue": {
+      "name": "[Venue name]",
+      "address": "[Venue address], Kolhapur, Maharashtra",
+      "muhuratLine": "Reception at 6:00 pm",
+      "notes": "",
+      "mapsUrl": "https://maps.app.goo.gl/REPLACE_WITH_YOUR_LINK",
+      "mapsEmbedUrl": ""
+    }
+  },
+
+  "invitation": {
+    "shlok": "॥ श्री गणेशाय नमः ॥   ॥ श्री कुलदेवतायै नमः ॥",
+    "greeting": "सप्रेम नमस्कार वि. वि.",
+    "body": "श्रीगुरुकृपेने आणि आपल्या सर्वांच्या शुभाशीर्वादाने, आमची कन्या **चि.सौ.कां. मृदुला** आणि श्री. [वडिलांचे नाव] व सौ. [आईचे नाव] आठले यांचे चिरंजीव **चि. मिहिर** यांच्या शुभविवाहानिमित्त **स्वागत समारंभाचे** आयोजन **शुक्रवार, दिनांक २५ डिसेंबर २०२६** रोजी **सायंकाळी ६ वाजता** कोल्हापूर येथे केले आहे. तरी या आनंदाच्या प्रसंगी आपण सहकुटुंब सहपरिवार उपस्थित राहून वधू-वरांना शुभाशीर्वाद द्यावेत, ही नम्र विनंती.",
+    "english": "With the blessings of Shri Ganesh and our elders, we joyfully invite you and your family to the wedding reception of Mrudula and Mihir.",
+    "details": [
+      { "label": "स्वागत समारंभ", "value": "शुक्रवार, २५ डिसेंबर २०२६\nसायं. ६.०० वा." },
+      { "label": "स्थळ", "value": "[कार्यालयाचे नाव]\nकोल्हापूर" }
+    ],
+    "brideSide": {
+      "heading": "वधूपक्ष – निमंत्रक",
+      "hosts": [
+        { "names": "श्री. [आजोबांचे नाव] व सौ. [आजींचे नाव] जोशी", "relation": "आजोबा – आजी" },
+        { "names": "श्री. [वडिलांचे नाव] व सौ. [आईचे नाव] जोशी", "relation": "आई – वडील" }
+      ]
+    },
+    "groomSide": {
+      "heading": "वरपक्ष – निमंत्रक",
+      "hosts": [
+        { "names": "श्री. [आजोबांचे नाव] व सौ. [आजींचे नाव] आठले", "relation": "आजोबा – आजी" },
+        { "names": "श्री. [वडिलांचे नाव] व सौ. [आईचे नाव] आठले", "relation": "आई – वडील" }
+      ]
+    },
+    "darshanabhilashi": { "label": "दर्शनाभिलाषी:", "text": "समस्त जोशी व आठले परिवार" },
+    "baldarshanabhilashi": { "label": "बालदर्शनाभिलाषी:", "text": "[लहान भावंडे व पुतणे-भाचे]" },
+    "footnote": ""
+  },
+
+  "people": {
+    "eyebrow": "The Two of Them",
+    "bride": {
+      "role": "The Bride · वधू",
+      "name": "Mrudula",
+      "marathi": "मृदुला जोशी",
+      "about": "Reads Pu. La. before breakfast and Murakami after midnight. Has never finished a day without a bookmark somewhere in her bag.",
+      "facts": [
+        { "label": "Now reading", "value": "A new novel she will not shut up about" },
+        { "label": "Always carries", "value": "A pencil, for the margins" },
+        { "label": "Says yes to", "value": "Second-hand bookshops, filter coffee" }
+      ]
+    },
+    "groom": {
+      "role": "The Groom · वर",
+      "name": "Mihir",
+      "marathi": "मिहिर आठले",
+      "about": "Knows the night sky by heart and will happily tell you which planet is the bright one. Brought a telescope to a family trip, twice.",
+      "facts": [
+        { "label": "Now watching", "value": "Saturn, when the weather allows" },
+        { "label": "Favourite hour", "value": "Just before sunrise" },
+        { "label": "Can name", "value": "Arundhati, and 40 other stars" }
+      ]
+    }
+  },
+
+  "venueSection": { "eyebrow": "When & Where", "cta": "Open in Maps" },
+
+  "footer": { "shlok": "॥ शुभं भवतु ॥", "text": "Mrudula & Mihir · 25.12.2026" }
+}
