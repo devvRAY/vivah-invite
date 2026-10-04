@@ -1,7 +1,14 @@
 {
   "theme": "c",
-
+  "music": { "file": "song.mp3", "volume": 0.6 },
   "names": { "bride": "Mrudula", "groom": "Mihir" },
+
+  "rsvp": {
+    "enabled": true,
+    "endpoint": "https://script.google.com/macros/s/AKfycbwfPQ-z0rW_QcKyqWTr4H-4qKUs1wJwKhTw_b7ilnxpysOntY3ffrLN-hy7agbhRK6xBQ/exec",
+    "replyBy": "10 December 2026",
+    "maxGuests": 6
+  },
 
   "photos": {
     "couple": { "file": "couple.jpg", "focus": "50% 30%" },
@@ -28,12 +35,12 @@
     "countdownNote": "until the reception",
     "countdownDoneNote": "The celebrations have begun",
     "venue": {
-      "name": "[Venue name]",
-      "address": "[Venue address], Kolhapur, Maharashtra",
+      "name": "Vishalgadkar House",
+      "address": "Vishalgadkar Compound, Sargam Vihar, Nagalapark, Kolhapur, Maharashtra 416003",
       "muhuratLine": "Reception at 6:00 pm",
       "notes": "",
-      "mapsUrl": "https://maps.app.goo.gl/REPLACE_WITH_YOUR_LINK",
-      "mapsEmbedUrl": ""
+      "mapsUrl": "https://maps.app.goo.gl/oJej1XKkd6wHwogr9?g_st=ac",
+      "mapsEmbedUrl": "https://maps.app.goo.gl/oJej1XKkd6wHwogr9?g_st=ac"
     }
   },
 

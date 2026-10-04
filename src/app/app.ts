@@ -3,8 +3,9 @@ import {
   computed, effect, inject, signal, viewChild,
 } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { CONFIG_URL, InviteConfig, Theme, isTheme, rich } from './config';
+import { CONFIG_URL, InviteConfig, Theme, isTheme, musicUrl, rich } from './config';
 import { Photo } from './photo';
+import { Rsvp } from './rsvp';
 
 const HINTS: Record<Theme, string> = {
   a: 'Tap the seal to open',
@@ -19,7 +20,7 @@ const KICKERS: Record<Theme, string> = {
 
 @Component({
   selector: 'app-root',
-  imports: [Photo],
+  imports: [Photo, Rsvp],
   templateUrl: './app.html',
   encapsulation: ViewEncapsulation.None, // all styling lives in src/styles.scss
 })
@@ -46,10 +47,21 @@ export class App implements OnDestroy {
   protected readonly done = signal(false);
   protected readonly gone = signal(false);
   private timers: ReturnType<typeof setTimeout>[] = [];
+    private audio?: HTMLAudioElement;
+  protected readonly hasMusic = signal(false);
+  protected readonly playing = signal(false);
+
+  protected toggleMusic() {
+    const a = this.audio;
+    if (!a) return;
+    if (a.paused) a.play().then(() => this.playing.set(true)).catch(() => {});
+    else { a.pause(); this.playing.set(false); }
+  }
 
   protected open() {
     if (this.opened()) return;
     this.opened.set(true);
+    this.audio?.play().then(() => this.playing.set(true)).catch(() => this.playing.set(false));
     this.timers.push(setTimeout(() => this.done.set(true), 3000));
     this.timers.push(
       setTimeout(() => {
@@ -113,6 +125,12 @@ export class App implements OnDestroy {
 
   constructor() {
     this.load();
+    document.addEventListener('visibilitychange', () => {
+      const a = this.audio;
+      if (!a || !this.opened()) return;
+      if (document.hidden) a.pause();
+      else if (this.playing()) a.play().catch(() => {});
+    });
     effect(() => {
       const cv = this.stars()?.nativeElement;
       if (cv) this.startStars(cv);
@@ -126,6 +144,14 @@ export class App implements OnDestroy {
       const c = (await res.json()) as InviteConfig;
       document.title = c.pageTitle || `${c.names.bride} & ${c.names.groom}`;
       document.documentElement.style.overflow = 'hidden'; // locked until the envelope opens
+      if (c.music?.file) {
+        const a = new Audio(musicUrl(c.music.file));
+        a.loop = true;
+        a.preload = 'auto';
+        a.volume = Math.min(1, Math.max(0, c.music.volume ?? 0.6));
+        this.audio = a;
+        this.hasMusic.set(true);
+      }
       this.cfg.set(c);
     } catch (e) {
       this.error.set(`Could not load ${CONFIG_URL} (${e instanceof Error ? e.message : e}).`);
@@ -167,5 +193,6 @@ export class App implements OnDestroy {
     clearInterval(this.tick);
     cancelAnimationFrame(this.raf);
     this.timers.forEach(clearTimeout);
+    this.audio?.pause();
   }
 }

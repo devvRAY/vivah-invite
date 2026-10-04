@@ -214,3 +214,49 @@ iframe.map::after{display:none}
 #c .pt h2{font-size:clamp(46px,9vw,92px)}
 #c .venue{background:#fff3d6}
 @media(prefers-reduced-motion:reduce){*{transition-duration:.01s!important;animation:none!important}}
+.music{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:20;width:48px;height:48px;border:0;border-radius:50%;display:grid;place-items:center;cursor:pointer;background:var(--cta-bg);color:var(--cta-fg);box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.music svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.music:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+/* ============ RSVP (Shri Mudra reply card, themed) ============ */
+#a{--rs-card:#fcf8ee;--rs-line:#a07a2c;--rs-label:#7d5c14;--rs-ink:#2b1520;--rs-dim:#6a5560;--rs-acc:#7c1534;--rs-head:#7c1534;--rs-mar:#8c1a3b;--rs-sel:#f3e7cf;--rs-btn:#7c1534;--rs-btnfg:#f6e8c8;--rs-seal:#d6334b;--rs-sealfg:#f5d9a0;--rs-err:#b3261e;--rs-r:0;--rs-rc:0;--rs-fd:'Bodoni Moda',serif;--rs-fs:italic 500}
+#b{--rs-card:#0e1450;--rs-line:#e0bb72;--rs-label:#e0bb72;--rs-ink:#f1ecde;--rs-dim:#b4b3c8;--rs-acc:#e0bb72;--rs-head:#f3dfae;--rs-mar:#e0bb72;--rs-sel:rgba(224,187,114,.16);--rs-btn:#e0bb72;--rs-btnfg:#0a0e30;--rs-seal:#0a0e30;--rs-sealfg:#e0bb72;--rs-err:#ff9a9a;--rs-r:0;--rs-rc:0;--rs-fd:'Marcellus',serif;--rs-fs:400}
+#c{--rs-card:#fffaf0;--rs-line:#0f6b5d;--rs-label:#0f6b5d;--rs-ink:#1e1a14;--rs-dim:#6b6354;--rs-acc:#0f6b5d;--rs-head:#0f6b5d;--rs-mar:#a85a00;--rs-sel:#ffe9b8;--rs-btn:#0f6b5d;--rs-btnfg:#fffaf0;--rs-seal:#ffd37a;--rs-sealfg:#0f6b5d;--rs-err:#b3261e;--rs-r:14px;--rs-rc:24px;--rs-fd:'DM Serif Display',serif;--rs-fs:italic 400}
+
+.rsvp .wrap{max-width:720px}
+.rs-card{display:flex;flex-direction:column;gap:20px;box-sizing:border-box;padding:clamp(34px,6vw,44px) clamp(26px,8vw,56px);background:var(--rs-card);color:var(--rs-ink);font-family:var(--fb);border:1px solid var(--rs-line);border-radius:var(--rs-rc);box-shadow:inset 0 0 0 9px var(--rs-card),inset 0 0 0 10px var(--rs-line)}
+.rs-head{text-align:center}
+.rs-mar{font:600 15px 'Noto Serif Devanagari',serif;color:var(--rs-mar)}
+.rs-head h2,.rs-done h2{margin:6px 0 4px;font:var(--rs-fs) clamp(34px,8vw,44px)/1.05 var(--rs-fd);color:var(--rs-head)}
+.rs-sub,.rs-h{margin:0;font:400 13px var(--fb);color:var(--rs-dim)}
+.rs-sub{font-size:14px}
+.rs-f{display:flex;flex-direction:column;gap:4px}
+.rs-l{font:600 11px var(--fb);letter-spacing:.26em;text-transform:uppercase;color:var(--rs-label)}
+.rs-i{width:100%;box-sizing:border-box;border:0;border-bottom:1px solid var(--rs-line);border-radius:0;background:transparent;padding:6px 0;outline:0;font:var(--rs-fs) 24px var(--rs-fd);color:var(--rs-ink)}
+textarea.rs-i{resize:none;font-size:19px;line-height:1.4}
+.rs-i:focus-visible{border-bottom-color:var(--rs-acc);box-shadow:0 1px 0 var(--rs-acc)}
+.rs-ph{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--rs-line)}
+.rs-ph span{font:500 17px var(--fb);color:var(--rs-dim)}
+.rs-ph .rs-i{border:0;box-shadow:none}
+.rs-ph svg{flex:none;width:22px;height:22px;fill:none;stroke:var(--rs-acc);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rs-ph:focus-within{border-bottom-color:var(--rs-acc);box-shadow:0 1px 0 var(--rs-acc)}
+.rs-card .bad,.rs-card .bad:focus-within{border-bottom-color:var(--rs-err);box-shadow:0 1px 0 var(--rs-err)}
+.rs-card .rs-e{color:var(--rs-err)}
+.rs-row{display:flex;gap:12px;flex-wrap:wrap}
+.rs-o{flex:1 1 200px;display:flex;align-items:center;gap:12px;min-height:52px;padding:0 18px;border:1px solid var(--rs-line);border-radius:var(--rs-r);background:var(--rs-card);font:500 15px var(--fb);cursor:pointer}
+.rs-o.on{background:var(--rs-sel)}
+.rs-o input{accent-color:var(--rs-acc);width:18px;height:18px;margin:0}
+.rs-o:focus-within{outline:2px solid var(--rs-acc);outline-offset:2px}
+.rs-gst{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.rs-step{display:flex;align-items:center;gap:14px}
+.rs-step button{width:44px;height:44px;border:1px solid var(--rs-line);border-radius:var(--rs-r);background:transparent;color:var(--rs-acc);font:500 22px var(--fb);cursor:pointer}
+.rs-step button:disabled{opacity:.35;cursor:default}
+.rs-step output{min-width:28px;text-align:center;font:var(--rs-fs) 30px var(--rs-fd)}
+.rs-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.rs-btn{display:flex;align-items:center;justify-content:center;gap:14px;min-height:60px;margin-top:6px;padding:0 28px;border:0;border-radius:var(--rs-r);background:var(--rs-btn);color:var(--rs-btnfg);font:600 13px var(--fb);letter-spacing:.28em;text-transform:uppercase;cursor:pointer}
+.rs-btn:disabled{opacity:.7;cursor:progress}
+.rs-btn:focus-visible,.rs-step button:focus-visible,.rs-link:focus-visible{outline:2px solid var(--rs-acc);outline-offset:3px}
+.rs-seal{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--rs-seal);color:var(--rs-sealfg);font:600 14px 'Noto Serif Devanagari',serif;letter-spacing:0}
+.rs-done{align-items:center;text-align:center}
+.rs-done .rs-seal{width:64px;height:64px;font-size:26px}
+.rs-done p{max-width:46ch;margin:0;color:var(--rs-dim);font:400 16px/1.7 var(--fb)}
+.rs-link{background:none;border:0;padding:8px;font:600 11px var(--fb);letter-spacing:.26em;text-transform:uppercase;color:var(--rs-label);text-decoration:underline;cursor:pointer}

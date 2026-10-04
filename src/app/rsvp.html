@@ -1,0 +1,96 @@
+@let x = t();
+@if (x.enabled) {
+<section class="sec rsvp" id="rsvp"><div class="wrap">
+
+  @if (status() === 'sent') {
+    <div class="rs-card rs-done" role="status">
+      <div class="rs-seal">{{ cfg().stage.sealText }}</div>
+      <h2>{{ thanksTitle() }}</h2>
+      <p>{{ thanksBody() }}</p>
+      <button type="button" class="rs-link" (click)="reset()">{{ x.editLabel }}</button>
+    </div>
+  } @else {
+    <form class="rs-card" novalidate (submit)="submit($event)">
+      <div class="rs-head">
+        <div class="rs-mar deva">{{ x.eyebrow }}</div>
+        <h2>{{ x.title }}</h2>
+        @if (subtitle()) { <p class="rs-sub">{{ subtitle() }}</p> }
+      </div>
+
+      <div class="rs-f">
+        <label class="rs-l" for="rs-name">{{ x.nameLabel }}</label>
+        <input class="rs-i" id="rs-name" name="name" autocomplete="name" [class.bad]="bad('name')"
+               [value]="name()" (input)="name.set(val($event))" (blur)="touch('name')">
+        @if (bad('name')) { <span class="rs-h rs-e" role="alert">{{ x.nameError }}</span> }
+      </div>
+
+      <div class="rs-f">
+        <label class="rs-l" for="rs-ph">{{ x.phoneLabel }}</label>
+        <div class="rs-ph" [class.bad]="bad('phone')">
+          <span>+91</span>
+          <input class="rs-i" id="rs-ph" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national"
+                 placeholder="98765 43210" aria-describedby="rs-ph-h" [attr.aria-invalid]="bad('phone')"
+                 [value]="phone()" (input)="onPhone($event)" (blur)="touch('phone')">
+          @if (phoneOk()) {
+            <svg viewBox="0 0 24 24" role="img" aria-label="Valid number"><circle cx="12" cy="12" r="10"></circle><path d="M8 12l3 3 5-6"></path></svg>
+          }
+        </div>
+        <span class="rs-h" id="rs-ph-h" [class.rs-e]="bad('phone')" [attr.role]="bad('phone') ? 'alert' : null">
+          {{ bad('phone') ? x.phoneError : x.phoneHint }}
+        </span>
+      </div>
+
+      <div class="rs-f">
+        <div class="rs-row" role="radiogroup" [attr.aria-label]="x.title">
+          <label class="rs-o" [class.on]="attending() === 'yes'">
+            <input type="radio" name="attending" [checked]="attending() === 'yes'" (change)="setAttending('yes')">{{ x.yes }}
+          </label>
+          <label class="rs-o" [class.on]="attending() === 'no'">
+            <input type="radio" name="attending" [checked]="attending() === 'no'" (change)="setAttending('no')">{{ x.no }}
+          </label>
+        </div>
+        @if (bad('attend')) { <span class="rs-h rs-e" role="alert">{{ x.attendError }}</span> }
+      </div>
+
+      @if (attending() === 'yes') {
+        <div class="rs-gst">
+          <span class="rs-l">{{ x.guestsLabel }}</span>
+          <div class="rs-step">
+            <button type="button" aria-label="Fewer guests" [disabled]="guests() === 0" (click)="step(-1)">−</button>
+            <output aria-live="polite">{{ guests() }}</output>
+            <button type="button" aria-label="More guests" [disabled]="guests() >= x.maxGuests" (click)="step(1)">+</button>
+          </div>
+        </div>
+
+        <div class="rs-f" style="gap:10px">
+          <span class="rs-l">{{ x.stayLabel }}</span>
+          <div class="rs-row" role="radiogroup" [attr.aria-label]="x.stayLabel">
+            <label class="rs-o" [class.on]="stay() === 'yes'">
+              <input type="radio" name="stay" [checked]="stay() === 'yes'" (change)="setStay('yes')">{{ x.stayYes }}
+            </label>
+            <label class="rs-o" [class.on]="stay() === 'no'">
+              <input type="radio" name="stay" [checked]="stay() === 'no'" (change)="setStay('no')">{{ x.stayNo }}
+            </label>
+          </div>
+          @if (bad('stay')) { <span class="rs-h rs-e" role="alert">{{ x.attendError }}</span> }
+        </div>
+      }
+
+      <div class="rs-f">
+        <label class="rs-l" for="rs-msg">{{ x.messageLabel }}</label>
+        <textarea class="rs-i" id="rs-msg" name="message" rows="2" maxlength="500"
+                  [value]="message()" (input)="message.set(val($event))"></textarea>
+      </div>
+
+      <input class="rs-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" (input)="hp.set(val($event))">
+
+      @if (status() === 'error') { <p class="rs-h rs-e" role="alert" style="text-align:center">{{ x.errorText }}</p> }
+
+      <button type="submit" class="rs-btn" [disabled]="status() === 'sending'">
+        <span class="rs-seal">{{ cfg().stage.sealText }}</span>{{ status() === 'sending' ? x.sending : x.button }}
+      </button>
+    </form>
+  }
+
+</div></section>
+}
