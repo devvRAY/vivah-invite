@@ -106,7 +106,7 @@ export const RSVP_DEFAULTS = {
   stayYes: 'Yes, please help',
   stayNo: 'No, we have it covered',
   messageLabel: 'A blessing for the couple',
-  button: 'Send our reply',
+  button: 'Send your reply',
   sending: 'Sending…',
   errorText: 'Something went wrong. Please try again, or call us.',
   thanksYesTitle: 'Thank you, {name}!',
