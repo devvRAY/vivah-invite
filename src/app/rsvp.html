@@ -29,7 +29,7 @@
         <div class="rs-ph" [class.bad]="bad('phone')">
           <span>+91</span>
           <input class="rs-i" id="rs-ph" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national"
-                 placeholder="98765 43210" aria-describedby="rs-ph-h" [attr.aria-invalid]="bad('phone')"
+                 placeholder="Mobile number" aria-describedby="rs-ph-h" [attr.aria-invalid]="bad('phone')"
                  [value]="phone()" (input)="onPhone($event)" (blur)="touch('phone')">
           @if (phoneOk()) {
             <svg viewBox="0 0 24 24" role="img" aria-label="Valid number"><circle cx="12" cy="12" r="10"></circle><path d="M8 12l3 3 5-6"></path></svg>

@@ -235,6 +235,7 @@ iframe.map::after{display:none}
 .rs-i{width:100%;box-sizing:border-box;border:0;border-bottom:1px solid var(--rs-line);border-radius:0;background:transparent;padding:6px 0;outline:0;font:var(--rs-fs) 24px var(--rs-fd);color:var(--rs-ink)}
 textarea.rs-i{resize:none;font-size:19px;line-height:1.4}
 .rs-i:focus-visible{border-bottom-color:var(--rs-acc);box-shadow:0 1px 0 var(--rs-acc)}
+.rs-i::placeholder{color:var(--rs-dim);opacity:.5;font:400 16px var(--fb);letter-spacing:.02em}
 .rs-ph{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--rs-line)}
 .rs-ph span{font:500 17px var(--fb);color:var(--rs-dim)}
 .rs-ph .rs-i{border:0;box-shadow:none}
