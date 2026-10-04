@@ -61,8 +61,8 @@ svg.ph{fill:currentColor}
 .hero .eyebrow{margin-top:22px}
 .ganesh{font:400 20px 'Noto Serif Devanagari',serif;color:var(--accent2)}
 .frame{flex:none;margin:26px auto 0;width:min(78vw,380px);aspect-ratio:4/5}
-.names{font:var(--fd-style);font-size:clamp(52px,12vw,116px);line-height:.95;margin:26px 0 0;color:var(--ink);text-wrap:balance}
-.names i{color:var(--accent);font-size:.6em;padding:0 .12em}
+.names{font:var(--fd-style);font-size:clamp(38px,11.5vw,116px);line-height:.95;margin:26px 0 0;color:var(--ink);text-wrap:balance}
+.names i{color:var(--accent);font-size:.6em;padding:0 .04em}
 .deva-sub{font-size:17px;color:var(--dim);margin:12px 0 0;white-space:pre-wrap}
 .when{font:500 13px var(--fb);letter-spacing:.24em;text-transform:uppercase;margin:10px 0 0;color:var(--ink)}
 .when span{color:var(--accent)}
@@ -202,7 +202,7 @@ iframe.map::after{display:none}
 #c .cf-photo,#c .frame{border-radius:22px}
 #c .frame{width:min(82vw,420px);aspect-ratio:1/1.1;box-shadow:14px 14px 0 #0f6b5d,14px 14px 0 1px #0f6b5d}
 #c .hero{background:linear-gradient(180deg,#fff3d6,#fffaf0 60%)}
-#c .names{font-size:clamp(56px,14vw,150px)}
+#c .names{font-size:clamp(38px,12vw,150px)}
 #c .names i{font-family:'DM Serif Display';font-style:italic;color:#d97706}
 #c .cd .u{background:#0f6b5d;color:#fffaf0;border-radius:18px}
 #c .cd b{color:#ffe29a}
